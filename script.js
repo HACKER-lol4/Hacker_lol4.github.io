@@ -1,7 +1,8 @@
+
 function myFunction() {
-  var dots = document.getElementById("dots");
-  var moreText = document.getElementById("more");
-  var btnText = document.getElementById("myBtn");
+  const dots = document.getElementById("dots");
+  const moreText = document.getElementById("more");
+  const btnText = document.getElementById("myBtn");
 
   if (dots.style.display === "none") {
     dots.style.display = "inline";
@@ -13,8 +14,3 @@ function myFunction() {
     moreText.style.display = "inline";
   }
 }
-para.style.color = 'white';
-para.style.backgroundColor = 'black';
-para.style.padding = '10px';
-para.style.width = '250px';
-para.style.textAlign = 'center';
