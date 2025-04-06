@@ -1,13 +1,3 @@
-// Create and style new paragraph
-const sect = document.querySelector('section');
-const para = document.createElement('p');
-para.textContent = 'Write your text here.';
-para.style.color = 'white';
-para.style.backgroundColor = 'black';
-para.style.padding = '10px';
-para.style.width = '250px';
-para.style.textAlign = 'center';
-sect.appendChild(para);
 
 // Read more/less functionality
 function myFunction() {
@@ -25,3 +15,16 @@ function myFunction() {
     moreText.style.display = "inline";
   }
 }
+
+// Wait for DOM to load before applying styles
+document.addEventListener('DOMContentLoaded', function() {
+  const sect = document.querySelector('section');
+  const para = document.createElement('p');
+  para.textContent = 'Write your text here.';
+  para.style.color = 'white';
+  para.style.backgroundColor = 'black';
+  para.style.padding = '10px';
+  para.style.width = '250px';
+  para.style.textAlign = 'center';
+  sect.appendChild(para);
+});
