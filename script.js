@@ -19,12 +19,10 @@ function myFunction() {
 // Wait for DOM to load before applying styles
 document.addEventListener('DOMContentLoaded', function() {
   const sect = document.querySelector('section');
-  const para = document.createElement('p');
-  para.textContent = 'Write your text here.';
-  para.style.color = 'white';
-  para.style.backgroundColor = 'black';
-  para.style.padding = '10px';
-  para.style.width = '250px';
-  para.style.textAlign = 'center';
-  sect.appendChild(para);
+  const linkPara = document.querySelector('section p:last-child');
+  linkPara.style.color = 'white';
+  linkPara.style.backgroundColor = 'black';
+  linkPara.style.padding = '10px';
+  linkPara.style.width = '250px';
+  linkPara.style.textAlign = 'center';
 });
