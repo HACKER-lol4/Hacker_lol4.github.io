@@ -1,4 +1,3 @@
-
 function myFunction() {
   const dots = document.getElementById("dots");
   const moreText = document.getElementById("more");
@@ -19,3 +18,14 @@ function myFunction() {
   para.style.width = '250px';
   para.style.textAlign = 'center';
 }
+
+const sect = document.querySelector('section');
+const para = document.createElement('p');
+para.textContent = 'Write your text here.';
+sect.appendChild(para);
+const text = document.createTextNode(' — the premier source for web development knowledge.');
+const linkPara = document.querySelector('p');
+linkPara.appendChild(text);
+sect.appendChild(linkPara);
+sect.removeChild(linkPara);
+linkPara.remove();
