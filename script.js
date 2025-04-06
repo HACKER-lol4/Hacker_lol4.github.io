@@ -23,6 +23,7 @@ document.addEventListener('DOMContentLoaded', function() {
   linkPara.style.color = 'white';
   linkPara.style.backgroundColor = 'black';
   linkPara.style.padding = '10px';
-  linkPara.style.width = '250px';
-  linkPara.style.textAlign = 'center';
+  linkPara.style.width = '500px';
+  linkPara.style.textAlign = 'left';
+  linkPara.style.margin = '20px auto';
 });
