@@ -13,4 +13,9 @@ function myFunction() {
     btnText.innerHTML = "Read less";
     moreText.style.display = "inline";
   }
+  para.style.color = 'white';
+  para.style.backgroundColor = 'black';
+  para.style.padding = '10px';
+  para.style.width = '250px';
+  para.style.textAlign = 'center';
 }
