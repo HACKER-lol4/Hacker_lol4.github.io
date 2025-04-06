@@ -20,7 +20,7 @@ function myFunction() {
 document.addEventListener('DOMContentLoaded', function() {
   const sect = document.querySelector('section');
   const para = document.createElement('p');
-  para.innerHTML = 'Here we will add a link to the <a href="https://en.wikipedia.org/wiki/Inflation">Wikipedia page about Inflation</a>. From this source, we can see that "Inflation is the decrease in the purchasing power of a currency. That is, when the general level of prices rise, each monetary unit can buy fewer goods and services in aggregate. The effect of inflation differs on different sectors of the economy, with some sectors being adversely affected while others benefitting."';
+  para.innerHTML = 'Here we will add a link to the  href="https://en.wikipedia.org/wiki/Inflation">Wikipedia page about Inflation</a>. From this source, we can see that "Inflation is the decrease in the purchasing power of a currency. That is, when the general level of prices rise, each monetary unit can buy fewer goods and services in aggregate. The effect of inflation differs on different sectors of the economy, with some sectors being adversely affected while others benefitting."';
   para.style.color = 'white';
   para.style.backgroundColor = 'black';
   para.style.padding = '10px';
