@@ -34,3 +34,13 @@ document.addEventListener('DOMContentLoaded', function() {
     link.style.color = '#00ffff';
   }
 });
+
+function handleSubmit(event) {
+  event.preventDefault();
+  const formData = new FormData(event.target);
+  const data = Object.fromEntries(formData);
+  
+  // For now, just show an alert with the form data
+  alert('Form submitted!\n\nName: ' + data.name + '\nEmail: ' + data.email + '\nMessage: ' + data.message);
+  event.target.reset();
+}

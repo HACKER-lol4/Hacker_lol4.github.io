@@ -18,6 +18,25 @@
       <img src="attached_assets/GettyImages-1030831244-4279d87f1272423288e24a9ed9925c80.jpg" alt="Close up of hundred dollar bills" width="300"> 
       <p>Here we will add a link to the <a href="https://en.wikipedia.org/wiki/Inflation">Wikipedia page about Inflation</a>. From this source, we can see that "Inflation is the decrease in the purchasing power of a currency. That is, when the general level of prices rise, each monetary unit can buy fewer goods and services in aggregate. The effect of inflation differs on different sectors of the economy, with some sectors being adversely affected while others benefitting."</p>
     </section>
+
+    <section class="contact-form">
+      <h2>Contact Us</h2>
+      <form id="contactForm" onsubmit="handleSubmit(event)">
+        <div class="form-group">
+          <label for="name">Name:</label>
+          <input type="text" id="name" name="name" required>
+        </div>
+        <div class="form-group">
+          <label for="email">E-mail:</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+        <div class="form-group">
+          <label for="message">Message:</label>
+          <textarea id="message" name="message" required></textarea>
+        </div>
+        <button type="submit">Send Your Message</button>
+      </form>
+    </section>
     <script src="script.js"></script>
   </body>
 </html>
