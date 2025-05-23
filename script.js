@@ -6,7 +6,15 @@ function handleSubmit(event) {
   event.target.reset();
 }
 
-Plotly.d3.csv('attached_assets/Trillions -  $Trillions 2024.csv', function(err, rows){
+Plotly.d3.csv('./attached_assets/Trillions -  $Trillions 2024.csv', function(err, rows){
+  if(err) {
+    console.error('Error loading CSV:', err);
+    return;
+  }
+  if(!rows || rows.length === 0) {
+    console.error('No data found in CSV');
+    return;
+  }
   function unpack(rows, key) {
     return rows.map(function(row) { return row[key]; });
   }
