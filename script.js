@@ -6,27 +6,21 @@ function handleSubmit(event) {
   event.target.reset();
 }
 
-Plotly.d3.csv('./attached_assets/Trillions -  $Trillions 2024.csv', function(err, rows){
-  if(err) {
-    console.error('Error loading CSV:', err);
-    return;
-  }
-  if(!rows || rows.length === 0) {
-    console.error('No data found in CSV');
-    return;
-  }
-  function unpack(rows, key) {
-    return rows.map(function(row) { return row[key]; });
-  }
-
-  var data = [{
-    type: 'bar',
-    x: unpack(rows, 'what'),
-    y: unpack(rows, 'trillion US$'),
-    text: unpack(rows, 'notes / story / interesting fact'),
-    hoverinfo: 'text',
-    marker: {
-      color: unpack(rows, 'category').map(cat => {
+fetch('./attached_assets/Trillions -  $Trillions 2024.csv')
+  .then(response => response.text())
+  .then(csvData => {
+    const rows = csvData.split('\n')
+      .map(row => row.split(','))
+      .filter(row => row[0] && !isNaN(row[0]));
+    
+    const data = [{
+      type: 'bar',
+      x: rows.map(row => row[1]),
+      y: rows.map(row => parseFloat(row[0])),
+      text: rows.map(row => row[3]),
+      hoverinfo: 'text',
+      marker: {
+        color: rows.map(row => row[4]).map(cat => {
         const colors = {
           'earning': '#4CAF50',
           'spending': '#2196F3',
