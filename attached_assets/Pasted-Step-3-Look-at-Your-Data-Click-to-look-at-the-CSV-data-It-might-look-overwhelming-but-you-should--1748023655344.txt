@@ -1,0 +1,45 @@
+Step 3: Look at Your Data
+Click to look at the CSV data. It might look overwhelming but you should notice a top row of titles that describe the data like:
+
+US pet statistics,Households that Own a Pet (millions),Total Pets (millions) ,,Pet Industry Expenditure,"
+You can use these names to “unpack” the data into your project.
+
+Step 4: Write the HTML Code
+Start with an HTML file and include the script source for the Plotly library.
+
+<head>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+In the body of your HTML document, create a header with the title of your data project and a short paragraph explaining it.
+
+<h1>US Pet Statistics</h1>
+
+<p>The goal of this project is to compare the popularity of various types of pet ownership in the United States.</p>
+Underneath that, make a simple div with a memorable and descriptive id to create the space for your plot to be created in:
+
+<!-- Plotly chart will be drawn inside this DIV -->
+        <div id="barPlot"></div>
+Step 5: Write the JavaScript Code
+Either inside of a <script> element in the HTML file, or as an external JavaScript file, you’ll need to write code to access the data in the CSV and “unpack” it. You can copy and paste the following code, but make sure to replace petdata.csv with the name of your file.
+
+Plotly.d3.csv('petdata.csv', function(err, rows){
+      function unpack(rows, key) {
+          return rows.map(function(row) { return row[key]; });
+      }
+Next you need to extract the data you’re most interested in plotting and tell Plotly how to plot it. For example, we have identified that we want a bar chart, with x and y values corresponding to certain rows of the CSV data that we unpacked above.
+
+var data = [{
+        type: 'bar',
+        x: unpack(rows, 'US pet statistics'),
+        y: unpack(rows, 'Households that Own a Pet (millions)'),
+        }];
+Next, we can choose various layout options. This is a simplistic example, but you can dig into the Plotly documentation to customize your charts.
+
+var layout = {
+      title: 'Popularity of Pets in the US',
+};
+Finally, we create the plot, like this:
+
+ Plotly.plot('barPlot', data, layout);
+});
+At this point you should see your chart as part of your finished web pag

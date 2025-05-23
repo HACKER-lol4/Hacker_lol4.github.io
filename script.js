@@ -44,3 +44,21 @@ function handleSubmit(event) {
   alert('Form submitted!\n\nName: ' + data.name + '\nEmail: ' + data.email + '\nMessage: ' + data.message);
   event.target.reset();
 }
+
+Plotly.d3.csv('Trillions -  $Trillions 2024.csv', function(err, rows){
+  function unpack(rows, key) {
+      return rows.map(function(row) { return row[key]; });
+  }
+
+  var data = [{
+    type: 'bar',
+    x: unpack(rows, 'Trillion dollars statistics'),
+    y: unpack(rows, 'Households average income'),
+    }];
+
+  var layout = {
+        title: 'Size of 1 trillion dollars in the US',
+  };
+
+   Plotly.plot('barPlot', data, layout);
+  });
