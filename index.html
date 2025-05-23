@@ -5,19 +5,14 @@
     <meta name="viewport" content="width=device-width">
     <title>Understanding Trillion Dollars</title>
     <link href="style.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
   </head>
   <body>
-    <h1>How much is a trillion dollars?</h1>
+    <h1>Understanding Trillion Dollars</h1>
+    <p>This visualization explores various trillion-dollar statistics across different categories like global spending, earnings, and investments.</p>
 
-    <p>
-      What is the growth or shrinking of the value of money and how that affects the cost or value of things? I feel that inflation has a big impact on the value of money. I think that the value of money is decreasing over time<span id="dots">...</span><span id="more">. I think that the value of money is decreasing because of inflation. My project will explore how inflation affects the value of money and how that affects the cost or value of things.</span>
-    </p>
-    <button onclick="myFunction()" id="myBtn">Read more</button>
-
-    <section>
-      <img src="attached_assets/GettyImages-1030831244-4279d87f1272423288e24a9ed9925c80.jpg" alt="Close up of hundred dollar bills" width="300"> 
-      <p>Here we will add a link to the <a href="https://en.wikipedia.org/wiki/Inflation">Wikipedia page about Inflation</a>. From this source, we can see that "Inflation is the decrease in the purchasing power of a currency. That is, when the general level of prices rise, each monetary unit can buy fewer goods and services in aggregate. The effect of inflation differs on different sectors of the economy, with some sectors being adversely affected while others benefitting."</p>
-    </section>
+    <!-- Plotly chart will be drawn inside this DIV -->
+    <div id="barPlot"></div>
 
     <section class="contact-form">
       <h2>Contact Us</h2>
@@ -40,14 +35,3 @@
     <script src="script.js"></script>
   </body>
 </html>
-
-<head>
-    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-</head>
-
-<h1>Trillions of Dollars Statistics</h1>
-
-<p>The goal of this project is to show how much 1 trillion dollars is worth and even the size of it in the United States.</p>
-
-<!-- Plotly chart will be drawn inside this DIV -->
-<div id="barPlot"></div>
