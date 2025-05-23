@@ -1,3 +1,4 @@
+
 function handleSubmit(event) {
   event.preventDefault();
   const formData = new FormData(event.target);
@@ -10,44 +11,38 @@ fetch('./attached_assets/Trillions -  $Trillions 2024.csv')
   .then(response => response.text())
   .then(csvData => {
     const rows = csvData.split('\n')
+      .filter(row => row.trim())
       .map(row => row.split(','))
-      .filter(row => row[0] && !isNaN(row[0]));
-    
+      .slice(1); // Skip header row
+
     const data = [{
       type: 'bar',
-      x: rows.map(row => row[1]),
-      y: rows.map(row => parseFloat(row[0])),
-      text: rows.map(row => row[3]),
-      hoverinfo: 'text',
+      x: rows.map(row => row[1]), // 'what' column
+      y: rows.map(row => parseFloat(row[0])), // 'trillion US$' column
+      text: rows.map(row => row[3]), // 'notes' column
+      hoverinfo: 'text+y',
       marker: {
-        color: rows.map(row => row[4]).map(cat => {
-        const colors = {
-          'earning': '#4CAF50',
-          'spending': '#2196F3',
-          'saving': '#8BC34A',
-          'fighting': '#F44336',
-          'losing': '#FF5722',
-          'helping': '#9C27B0',
-          'hoarding': '#FFC107',
-          'owing': '#795548'
-        };
-        return colors[cat] || '#9E9E9E';
-      })
-    }
-  }];
+        color: rows.map(row => row[4] === 'spending' ? '#FF4136' : '#2ECC40')
+      }
+    }];
 
-  var layout = {
-    title: 'Global Trillion Dollar Statistics',
-    xaxis: {
-      tickangle: -45
-    },
-    yaxis: {
-      title: 'Trillion US$'
-    },
-    margin: {
-      b: 150
-    }
-  };
+    const layout = {
+      title: 'Global Trillion Dollar Statistics',
+      xaxis: {
+        title: 'Category',
+        tickangle: -45
+      },
+      yaxis: {
+        title: 'Trillion US$'
+      },
+      margin: {
+        b: 150,
+        l: 50,
+        r: 50,
+        t: 50
+      }
+    };
 
-  Plotly.newPlot('barPlot', data, layout);
-});
+    Plotly.newPlot('barPlot', data, layout);
+  })
+  .catch(error => console.error('Error loading data:', error));
